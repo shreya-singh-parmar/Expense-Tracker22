@@ -121,7 +121,16 @@ window.addEventListener("DOMContentLoaded",()=>{
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Delete';
             deleteButton.addEventListener('click', () => {
+                const itemId = item._id;
                
+                axios.delete(`https://crudcrud.com/api/e955e70c96b34dd99e0cb5bfb20135d2/appoinmentData/${itemId}`)
+                    .then((response) => {
+                       
+                        li.remove();
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
                
             });
 
